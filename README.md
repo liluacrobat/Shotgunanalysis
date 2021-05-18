@@ -1,6 +1,7 @@
 # Shotgunanalysis
 
 ## Merge reports from Kraken2
+download files and process with Matlab
 
 ```
 eval "$(/util/common/python/py38/anaconda-2020.07/bin/conda shell.bash hook)"
