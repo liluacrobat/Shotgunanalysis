@@ -222,7 +222,19 @@ Run script to submit jobs
 ```
 
 ## Download files and process with Matlab
-
+Combine the report files
+```
+eval "$(/util/common/python/py38/anaconda-2020.07/bin/conda shell.bash hook)"
+conda activate /projects/academic/pidiazmo/projectsoftwares/kraken2
+export PATH=$PATH:/projects/academic/pidiazmo/projectsoftwares/KrakenTools
+combine_kreports.py -r report/*.report -o Combined_std.report
+cd uclassified/sh
+combine_kreports.py -r report/*.report -o Combined_NIH.report
+```
+Download report files of contigs (MegaHitreports) and unmapped reads (Unmappedreports)
+Download the Kraken2 output of contigs (MegaHit_contig_Kraken2Output_Std, MegaHit_contig_Kraken2Output_NIH)
+Download the coverage files of the contigs (Coverage_all)
+Run Matlab program to generate the final table
 ```
 SumWGScontigPip.m
 ```
