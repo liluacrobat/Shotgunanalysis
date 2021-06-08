@@ -21,6 +21,7 @@ echo 'Filtering ...'
 kneaddata --input ../__SAMPLE_ID___R1.fastq --input ../__SAMPLE_ID___R2.fastq -db /projects/academic/pidiazmo/projectsoftwares/kneaddata/hg37_ref -db /projects/academic/pidiazmo/projectsoftwares/kneaddata/mice_ref --output kneaddata_output -t 12
 
 echo 'Succeed.'
+echo '--------------------'
 ```
 Run script to submit jobs
 ```
