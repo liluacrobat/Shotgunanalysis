@@ -1,8 +1,9 @@
 # Shotgunanalysis
 
 ## Filtering by Kneaddata
+Modify the job template
 ```
-
+./generate_slurm_kneaddata.sh
 ```
 ## Merge reports from Kraken2
 download files and process with Matlab
