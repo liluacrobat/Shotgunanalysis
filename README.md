@@ -12,18 +12,15 @@ Modify the job template
 #SBATCH --output=KD-__SAMPLE_ID__.log
 
 eval "$(/util/common/python/py38/anaconda-2020.07/bin/conda shell.bash hook)"
-export PATH=$PATH:/user/lli59/.local/bin
+conda activate /projects/academic/pidiazmo/projectsoftwares/kneaddata/kneaddata
 
 echo '--------------------'
-echo 'Summarizing sequencing qualities ...'
-START=`date +%s`
+echo 'Filtering ...'
 
 # If samples are from human, we can use only the hg37 database for host removal
 kneaddata --input ../__SAMPLE_ID___R1.fastq --input ../__SAMPLE_ID___R2.fastq -db /projects/academic/pidiazmo/projectsoftwares/kneaddata/hg37_ref -db /projects/academic/pidiazmo/projectsoftwares/kneaddata/mice_ref --output kneaddata_output -t 12
 
-END=`date +%s`
-ELAPSED=$(( $END - $START ))
-echo 'Summarizing sequencing qualities takes $ELAPSED s'
+echo 'Succeed.'
 ```
 Run script to submit jobs
 ```
