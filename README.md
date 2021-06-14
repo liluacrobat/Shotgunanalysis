@@ -229,10 +229,8 @@ FV_dir=/projects/academic/pidiazmo/projectsoftwares/FastViromeExplorer-1.3/utili
 bash $FV_dir/utility-scripts/generateGenomeList.sh IMGVR_all_nucleotides.fna img-vr-list.txt
 kallisto index -i img-vr-kallisto-index.idx IMGVR_all_nucleotides.fna
 ```
-The taxonomy reference of IMG/VR can be generate with Matlab code in 'utility' folder
-```
-Generate_IMG_VR_Tax.m
-```
+The taxonomy reference of IMG/VR can be generate with Generate_IMG_VR_Tax.m in 'Matlab' folder
+
 ```
 eval "$(/util/common/python/py38/anaconda-2020.07/bin/conda shell.bash hook)"
 conda activate /projects/academic/pidiazmo/projectsoftwares/kraken2
