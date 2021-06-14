@@ -220,6 +220,24 @@ Run script to submit jobs
 ```
 ./generate_slurm_K2_unmapped.sh
 ```
+## FastViromeExplorer to explore 
+Update the database
+```
+eval "$(/util/common/python/py38/anaconda-2020.07/bin/conda shell.bash hook)"
+conda activate /projects/academic/pidiazmo/projectsoftwares/kraken2
+FV_dir=/projects/academic/pidiazmo/projectsoftwares/FastViromeExplorer-1.3/utility-scripts
+bash $FV_dir/utility-scripts/generateGenomeList.sh IMGVR_all_nucleotides.fna img-vr-list.txt
+kallisto index -i img-vr-kallisto-index.idx IMGVR_all_nucleotides.fna
+```
+```
+eval "$(/util/common/python/py38/anaconda-2020.07/bin/conda shell.bash hook)"
+conda activate /projects/academic/pidiazmo/projectsoftwares/kraken2
+FV_dir=/projects/academic/pidiazmo/projectsoftwares/FastViromeExplorer-1.3 # replace with the absolute path of FastViromeExplorer
+VR_dir=/projects/academic/pidiazmo/metagenomic_datasets/IMG_VR/IMG_VR_2020-10-12_5.1
+java -cp $FV_dir/bin FastViromeExplorer -1 $read1File -2 $read2File -i $VR_dir//path-to-index-file/imgvr-virus-kallisto-index-k31.idx -l imgvr-viruses-list.txt -o $outputDirectory
+```
+Modify the job template MegaHit to make contigs
+
 
 ## Download files and process with Matlab
 Combine the report files
@@ -238,3 +256,4 @@ Run Matlab program to generate the final table
 ```
 SumWGScontigPip.m
 ```
+The final table corresponds to (number of read pairs)*2
