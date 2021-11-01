@@ -240,7 +240,8 @@ java -cp $FV_dir/bin FastViromeExplorer -1 $read1File -2 $read2File -i $VR_dir//
 ```
 Modify the job template MegaHit to make contigs
 
-
+'''
+'''
 ## Download files and process with Matlab
 Combine the report files
 ```
