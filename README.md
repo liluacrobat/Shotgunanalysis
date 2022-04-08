@@ -1,4 +1,7 @@
 # Shotgunanalysis
+```
+for x in ls *.gz;do gunzip $x;done
+```
 ## Useful command
 Create symbolic link of files
 ```
