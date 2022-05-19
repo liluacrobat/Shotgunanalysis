@@ -63,6 +63,12 @@ Run script to submit jobs
 ```
 ./generate_slurm_kneaddata.sh
 ```
+
+###Collect data of contigs
+```
+mkdir contigs
+for x in *_out;do cp $x/*.contigs.fa contigs/.;done
+```
 ## Assign taxonomy to the contigs using Kraken2
 Modify job template
 ```
