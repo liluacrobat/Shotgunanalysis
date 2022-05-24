@@ -272,6 +272,7 @@ combine_kreports.py -r Kraken2_unmapped/sh/PE/uclassified/sh/report/*.report -o 
 cp Kraken2_contig/sh/output core_files/MegaHit_contig_Kraken2Output_Std -r
 cp Kraken2_contig/sh/uclassified/sh/output core_files/MegaHit_contig_Kraken2Output_NIH -r
 cp Kraken2_unmapped/sh/Coverage core_files/Coverage_all -r
+cp 
 ```
 Download report files of contigs (MegaHitreports) and unmapped reads (Unmappedreports)
 Download the Kraken2 output of contigs (MegaHit_contig_Kraken2Output_Std, MegaHit_contig_Kraken2Output_NIH)
