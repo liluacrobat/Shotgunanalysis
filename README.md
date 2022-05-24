@@ -272,7 +272,11 @@ combine_kreports.py -r Kraken2_unmapped/sh/PE/uclassified/sh/report/*.report -o 
 cp Kraken2_contig/sh/output core_files/MegaHit_contig_Kraken2Output_Std -r
 cp Kraken2_contig/sh/uclassified/sh/output core_files/MegaHit_contig_Kraken2Output_NIH -r
 cp Kraken2_unmapped/sh/Coverage core_files/Coverage_all -r
-cp 
+
+eval "$(/util/common/python/py38/anaconda-2020.07/bin/conda shell.bash hook)"
+conda activate /projects/academic/pidiazmo/projectsoftwares/kneaddata/kneaddata
+kneaddata_read_count_table --input Kneaddata/sh/kneaddata_output --output core_files/kneaddata_read_count_table.tsv
+
 ```
 Download report files of contigs (MegaHitreports) and unmapped reads (Unmappedreports)
 Download the Kraken2 output of contigs (MegaHit_contig_Kraken2Output_Std, MegaHit_contig_Kraken2Output_NIH)
