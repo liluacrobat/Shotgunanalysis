@@ -286,3 +286,8 @@ Run Matlab program to generate the final table
 SumWGScontigPip.m
 ```
 The final table corresponds to (number of read pairs)*2
+
+# Output mapping realtionship
+```
+./samtools view -h mybamfile.bam | awk -F'\t' '{ print $2 }' > output.txt
+```
