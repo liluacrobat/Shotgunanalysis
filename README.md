@@ -157,9 +157,11 @@ mkdir Coverage
 # Map reads to the contigs
 bowtie2-build $DHIT/__SAMPLE_ID__.contigs.fa MAPPING/__SAMPLE_ID___contigs
 bowtie2 --threads 12 -x MAPPING/__SAMPLE_ID___contigs -1 $DWK/__SAMPLE_ID___R1_kneaddata_paired_1.fastq -2 $DWK/__SAMPLE_ID___R1_kneaddata_paired_2.fastq -S MAPPING/__SAMPLE_ID___aln.sam
-
+# Unmapped,but mate unmapped, not primary alignment
 samtools view -u -f 4 -F264 -bS MAPPING/__SAMPLE_ID___aln.sam > MAPPING/__SAMPLE_ID___aln-unmapped_tmp1.bam
+# Mate unmapped, but read unmapped not primary alignment
 samtools view -u -f 8 -F 260 -bS MAPPING/__SAMPLE_ID___aln.sam > MAPPING/__SAMPLE_ID___aln-unmapped_tmp2.bam
+# Read unmapped and mate unmapped, but not primary alignment
 samtools view -u -f 12 -F 256 -bS MAPPING/__SAMPLE_ID___aln.sam > MAPPING/__SAMPLE_ID___aln-unmapped_tmp3.bam
 samtools merge -u MAPPING/__SAMPLE_ID___aln-unmapped.bam MAPPING/__SAMPLE_ID___aln-unmapped_tmp1.bam MAPPING/__SAMPLE_ID___aln-unmapped_tmp2.bam MAPPING/__SAMPLE_ID___aln-unmapped_tmp3.bam
 samtools sort -n MAPPING/__SAMPLE_ID___aln-unmapped.bam -o Unmapped/__SAMPLE_ID___aln-unmapped_sorted.bam
