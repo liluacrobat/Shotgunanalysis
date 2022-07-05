@@ -291,6 +291,6 @@ The final table corresponds to (number of read pairs)*2
 
 # Output mapping realtionship
 ```
-./samtools view -h mybamfile.bam | awk -F'\t' '{ print $2 }' > output.txt
-samtools view negative_control_2_S14_aln-mapped_sorted.bam | awk -F'\t' '{ print $1 "\t" $3 }' > output.txt
+mkdir mapping_list
+for x in $(ls *_aln-mapped_sorted.bam);do samtools view $x | awk -F'\t' '{ print $1 "\t" $3 }' > mapping_list/$x.txt; done
 ```
