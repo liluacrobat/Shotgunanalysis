@@ -3,10 +3,10 @@
 #SBATCH --qos=general-compute
 #SBATCH --time=71:00:00
 #SBATCH --nodes=1
-#SBATCH --mem=30000
+#SBATCH --mem=60000
 #SBATCH --ntasks-per-node=12
-#SBATCH --job-name="KD-__SAMPLE_ID__"
-#SBATCH --output=KD-__SAMPLE_ID__.log
+#SBATCH --job-name="UnMappedTax-__SAMPLE_ID__"
+#SBATCH --output=UnMappedTax-__SAMPLE_ID__.log
 
 
 eval "$(/util/common/python/py38/anaconda-2020.07/bin/conda shell.bash hook)"
@@ -22,8 +22,8 @@ mkdir Reads/Unmapped
 mkdir Reads/Coverage
 
 # Map reads to the contigs
-bowtie2-build __WD__/sh/megahit_output/__SAMPLE_ID___out/__SAMPLE_ID__.contigs.fa Reads/MAPPING/__SAMPLE_ID___contigs
-bowtie2 --threads 12 -x Reads/MAPPING/__SAMPLE_ID___contigs -1 __WD__/sh/__SAMPLE_ID___R1_001_kneaddata_paired_1.fastq -2 __WD__/sh/__SAMPLE_ID___R1_001_kneaddata_paired_2.fastq -S Reads/MAPPING/__SAMPLE_ID___aln.sam
+bowtie2-build __WD__/Step1_Kneaddata/megahit_output/__SAMPLE_ID___out/__SAMPLE_ID__.contigs.fa Reads/MAPPING/__SAMPLE_ID___contigs
+bowtie2 --threads 12 -x Reads/MAPPING/__SAMPLE_ID___contigs -1 __WD__/Step1_Kneaddata/kneaddata_output/__SAMPLE_ID___R1_001_kneaddata_paired_1.fastq -2 __WD__/Step1_Kneaddata/kneaddata_output/__SAMPLE_ID___R1_001_kneaddata_paired_2.fastq -S Reads/MAPPING/__SAMPLE_ID___aln.sam
 
 samtools view -u -f 4 -F264 -bS Reads/MAPPING/__SAMPLE_ID___aln.sam > Reads/MAPPING/__SAMPLE_ID___aln-unmapped_tmp1.bam
 samtools view -u -f 8 -F 260 -bS Reads/MAPPING/__SAMPLE_ID___aln.sam > Reads/MAPPING/__SAMPLE_ID___aln-unmapped_tmp2.bam
