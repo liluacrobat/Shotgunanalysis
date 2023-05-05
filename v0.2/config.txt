@@ -1,0 +1,7 @@
+##### Slurm option #####
+PARTITION = general-compute
+KNEADATA_DB = /projects/academic/pidiazmo/projectsoftwares/kneaddata/hg37_ref -db /projects/academic/pidiazmo/projectsoftwares/kneaddata/mice_ref
+TRIMMOMATIC = /projects/academic/pidiazmo/projectsoftwares/Trimmomatic-0.39
+WD = /panfs/panfs.cbls.ccr.buffalo.edu/scratch/grp-pidiazmo/lu__05_2023/Roswell
+K2STD = /projects/academic/pidiazmo/projectsoftwares/kraken2_database/standard
+K2NIH = /projects/academic/pidiazmo/metagenomic_datasets/JAMSdbApr2020_32Gbk2db/krakendb
