@@ -3,7 +3,7 @@
 #SBATCH --qos=general-compute
 #SBATCH --time=71:00:00
 #SBATCH --nodes=1
-#SBATCH --mem=30000
+#SBATCH --mem=60000
 #SBATCH --ntasks-per-node=12
 #SBATCH --job-name="KD-__SAMPLE_ID__"
 #SBATCH --output=KD-__SAMPLE_ID__.log
