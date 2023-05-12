@@ -17,7 +17,7 @@ for f in *R1*.fastq;
     
 for f in *R1*.fastq;
     do b=$(echo "$f" | sed "s/^\(.*\)_R1_001.fastq$/\1/");
-        python Tools/build_slurm2.py -s $b -t job3_template.sh -d Step3_Kraken2_unmapped;
+        python Tools/build_slurm.py -s $b -t job3_template.sh -d Step3_Kraken2_unmapped;
     done
 cd sh
 chmod 777 *.sh
