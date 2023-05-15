@@ -19,7 +19,7 @@ for f in *R1*.fastq;
     do b=$(echo "$f" | sed "s/^\(.*\)_R1_001.fastq$/\1/");
         python Tools/build_slurm.py -s $b -t job3_template.sh -d Step3_Kraken2_unmapped;
     done
-cd sh
+cd Step1_Kneaddata
 chmod 777 *.sh
 
 for f in $(ls *.sh);do sbatch $f;done
