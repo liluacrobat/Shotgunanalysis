@@ -14,13 +14,13 @@ conda activate /projects/academic/pidiazmo/projectsoftwares/kraken2
 export PATH=$PATH:/projects/academic/pidiazmo/projectsoftwares/KrakenTools
 
 echo 'Summarize Kraken2 taxonomy annotation of contigs...'
-combine_kreports.py -r Step2_Kraken2_contig/K2STD_result/report/*.report -o core_files/MegaHitreports/Contig_STD.report
-combine_kreports.py -r Step2_Kraken2_contig/K2NIH_result/report/*.report -o core_files/MegaHitreports/Contig_NIH.report
+combine_kreports.py -r Step2_Kraken2_contig/K2STD_result/report/*.report -o core_files/MegaHit_reports/Contig_STD.report
+combine_kreports.py -r Step2_Kraken2_contig/K2NIH_result/report/*.report -o core_files/MegaHit_reports/Contig_NIH.report
 echo 'Summarize Kraken2 taxonomy annotation of contigs. Done.'
 
 echo 'Summarize Kraken2 taxonomy annotation of unmapped reads...'
-combine_kreports.py -r Step3_Kraken2_unmapped/Reads/PE/K2STD/report/*.report -o core_files/Unmappedreports/Unmapped_STD.report
-combine_kreports.py -r Step3_Kraken2_unmapped/Reads/PE/K2NIH/report/*.report -o core_files/Unmappedreports/Unmapped_NIH.report
+combine_kreports.py -r Step3_Kraken2_unmapped/Reads/PE/K2STD/report/*.report -o core_files/Unmapped_reports/Unmapped_STD.report
+combine_kreports.py -r Step3_Kraken2_unmapped/Reads/PE/K2NIH/report/*.report -o core_files/Unmapped_reports/Unmapped_NIH.report
 echo 'Summarize Kraken2 taxonomy annotation of unmapped reads. Done.'
 
 echo 'Summarize Kraken2 taxonomy output of contigs...'
