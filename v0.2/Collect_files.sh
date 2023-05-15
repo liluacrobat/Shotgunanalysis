@@ -4,7 +4,7 @@ conda activate /projects/academic/pidiazmo/projectsoftwares/kneaddata/kneaddata
 mkdir core_files
 mkdir core_files/MegaHitreports
 mkdir core_files/Unmappedreports
-mkdir core_files/MegaHit_contig_Kraken2Output_Std
+mkdir core_files/MegaHit_contig_Kraken2Output_STD
 mkdir core_files/MegaHit_contig_Kraken2Output_NIH
 echo 'Summarize KneadData results...'
 kneaddata_read_count_table --input Step1_Kneaddata/kneaddata_output --output core_files/kneaddata_read_count_table.tsv
