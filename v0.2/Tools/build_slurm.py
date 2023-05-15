@@ -21,7 +21,7 @@ if __name__ == "__main__":
     dfs = []
     
     # build slurm
-    slurm_file = home_path + '/' + args.directory + '/Kneaddata-' + args.sample_id + '.sh'
+    slurm_file = home_path + args.directory + '/Kneaddata-' + args.sample_id + '.sh'
     
     replace_pair = {}
     with open(config_file) as fc:
