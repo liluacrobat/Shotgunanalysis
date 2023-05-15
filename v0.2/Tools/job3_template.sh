@@ -25,8 +25,12 @@ mkdir Reads/Coverage
 bowtie2-build __WD__/Step1_Kneaddata/megahit_output/__SAMPLE_ID___out/__SAMPLE_ID__.contigs.fa Reads/MAPPING/__SAMPLE_ID___contigs
 bowtie2 --threads 6 -x Reads/MAPPING/__SAMPLE_ID___contigs -1 __WD__/Step1_Kneaddata/kneaddata_output/__SAMPLE_ID___R1_001_kneaddata_paired_1.fastq -2 __WD__/Step1_Kneaddata/kneaddata_output/__SAMPLE_ID___R1_001_kneaddata_paired_2.fastq -S Reads/MAPPING/__SAMPLE_ID___aln.sam
 
+
+# Self unmapped, mate mapped
 samtools view -u -f 4 -F 264 -bS Reads/MAPPING/__SAMPLE_ID___aln.sam > Reads/MAPPING/__SAMPLE_ID___aln-unmapped_tmp1.bam
+# Self mapped, mate unmapped
 samtools view -u -f 8 -F 260 -bS Reads/MAPPING/__SAMPLE_ID___aln.sam > Reads/MAPPING/__SAMPLE_ID___aln-unmapped_tmp2.bam
+# Both unmapped
 samtools view -u -f 12 -F 256 -bS Reads/MAPPING/__SAMPLE_ID___aln.sam > Reads/MAPPING/__SAMPLE_ID___aln-unmapped_tmp3.bam
 samtools merge -u Reads/MAPPING/__SAMPLE_ID___aln-unmapped.bam Reads/MAPPING/__SAMPLE_ID___aln-unmapped_tmp1.bam Reads/MAPPING/__SAMPLE_ID___aln-unmapped_tmp2.bam Reads/MAPPING/__SAMPLE_ID___aln-unmapped_tmp3.bam
 samtools sort -n Reads/MAPPING/__SAMPLE_ID___aln-unmapped.bam -o Reads/Unmapped/__SAMPLE_ID___aln-unmapped_sorted.bam
