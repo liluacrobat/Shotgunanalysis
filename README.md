@@ -1,4 +1,9 @@
 # Shotgunanalysis
+## Check storage
+```
+iquota -p /panasas/scratch/grp-sunstar
+```
+## Unzip files
 ```
 for x in ls *.gz;do gunzip $x;done
 ```
