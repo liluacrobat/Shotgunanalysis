@@ -2,8 +2,8 @@ eval "$(/util/common/python/py38/anaconda-2020.07/bin/conda shell.bash hook)"
 conda activate /projects/academic/pidiazmo/projectsoftwares/kneaddata/kneaddata
 
 mkdir core_files
-mkdir core_files/MegaHitreports
-mkdir core_files/Unmappedreports
+mkdir core_files/MegaHit_reports
+mkdir core_files/Unmapped_reports
 mkdir core_files/MegaHit_contig_Kraken2Output_STD
 mkdir core_files/MegaHit_contig_Kraken2Output_NIH
 echo 'Summarize KneadData results...'
