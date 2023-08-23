@@ -1,6 +1,7 @@
 # Shotgunanalysis
 ## Check storage
 ```
+ccrkinit
 iquota -p /panasas/scratch/grp-sunstar
 ```
 ## Unzip files
