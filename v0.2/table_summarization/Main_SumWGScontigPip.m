@@ -1,4 +1,4 @@
-function SumWGScontigPip
+function Main_SumWGScontigPip
 clc;clear;close all;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SumWGScontigPip - Generate the WGS table using contig based pipeline
@@ -8,7 +8,7 @@ clc;clear;close all;
 
 % % Assembly based pipeline
 % Step 1: Generate table of unmapped read
-path2dir = '../data/Unmapped_reports';
+path2dir = '../core_files/Unmapped_reports';
 para.rfile = 'Assembly_pip/Unmapped/Assembly_pip_unmapped_Std_NIH_raw';
 para.vr = 0;
 para.s_flag = 0;
@@ -18,7 +18,7 @@ mkdir('Assembly_pip/Unmapped');
 SumK2report2table(path2dir,para);
 
 % Step 2: Generate table of contigs
-path2dir = '../data/MegaHit_reports';
+path2dir = '../core_files/MegaHit_reports';
 para.rfile = 'Assembly_pip/Mapped_contig/Assembly_pip_mapped_contig_Std_NIH_raw';
 para.vr = 0;
 para.s_flag = 0;
@@ -32,9 +32,9 @@ para.rfile = 'Assembly_pip/Mapped_contig/Assembly_pip_mapped_contig_Std_NIH_raw'
 para.ofile = 'Assembly_pip/Mapped_read/Assembly_pip_mapped_read_Std_NIH_raw';
 para.vr = 0;
 para.s_flag = 0;
-para.dir2coverage = '../data/Coverage_reads2contig';
+para.dir2coverage = '../core_files/Coverage_reads2contig';
 mkdir('Assembly_pip/Mapped_read');
-dirls = {'../data/MegaHit_contig_Kraken2Output_STD','../data/MegaHit_contig_Kraken2Output_NIH'};
+dirls = {'../core_files/MegaHit_contig_Kraken2Output_STD/output','../core_files/MegaHit_contig_Kraken2Output_NIH/output'};
 K2out2report(dirls,para)
 
 % Step 4: Combine the table from contig and reads
@@ -105,5 +105,26 @@ for i=2:n
     F.tab = tab;
     F.sample = Rs;
     R = F;
+end
+end
+function writeResultTable(map_name,OTU_ID,Sample_ID,Data,tax)
+fid=fopen([map_name '.txt'],'w');
+fprintf(fid,'OTU ID');
+for i=1:length(Sample_ID)
+    fprintf(fid,'\t%s',Sample_ID{i});
+end
+if nargin==5
+    fprintf(fid,'\ttaxonomy');
+end
+fprintf(fid,'\n');
+for i=1:length(OTU_ID)
+    fprintf(fid,'%s',OTU_ID{i});
+    for j=1:length(Sample_ID)
+        fprintf(fid,'\t%f',Data(i,j));
+    end
+    if nargin==5
+        fprintf(fid,'\t%s',tax{i});
+    end
+    fprintf(fid,'\n');
 end
 end
