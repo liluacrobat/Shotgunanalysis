@@ -77,4 +77,5 @@ humann_rename_table --i genefamilies_joined_unstratified.tsv -c /projects/academ
 humann_rename_table --i genefamilies_joined_unstratified_KEGGpwy.tsv -c /projects/academic/pidiazmo/projectsoftwares/HUMAnN_database/utility_mapping/keggc.txt -o genefamilies_joined_unstratified_KEGGpwy_w_anno.tsv
 cd ..
 cd ..
+cd ..
 echo 'Collect HUMAnN files. Done.'
