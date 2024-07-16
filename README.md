@@ -13,6 +13,16 @@ Create symbolic link of files
 ```
 ln -s pwd/* .
 ```
+## Check sequence quality
+```
+module load fastqc/0.11.9-Java-11.0.16
+module load gcc/11.2.0 openmpi/4.1.1
+module load multiqc/1.14
+kdir fastqc
+fastqc -o fastqc *.fastq
+cd fastqc
+multiqc . --interactive
+```
 ## Filtering by Kneaddata
 Modify the job template
 ```
