@@ -18,7 +18,7 @@ ln -s pwd/* .
 module load fastqc/0.11.9-Java-11.0.16
 module load gcc/11.2.0 openmpi/4.1.1
 module load multiqc/1.14
-kdir fastqc
+mkdir fastqc
 fastqc -o fastqc *.fastq
 cd fastqc
 multiqc . --interactive
