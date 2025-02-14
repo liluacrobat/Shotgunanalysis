@@ -29,10 +29,7 @@ This framework automates job submission on CCR using Slurm. It includes:
 
 ### 4. Generate Slurm Job Scripts
 
-- Run the following command in the working directory:
-  ```bash
-  bash generate_slurm_all.sh
-  ```
+- Run the command included in generate_slurm_all.sh in the working directory:
   This script will create individual **.sh** job scripts for each task.
 
 ### 5. Load Required Modules
