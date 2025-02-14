@@ -1,4 +1,69 @@
 # Shotgunanalysis
+
+# Instructions for Using the Automated Job Submission Framework on CCR
+
+## Overview
+
+This framework automates job submission on CCR using Slurm. It includes:
+
+- A **config.txt** file for setting environmental parameters.
+- A **generate\_slurm\_all.sh** script for creating job scripts.
+- A **Tools** folder containing a template for generating Slurm job scripts.
+
+## Steps to Use the Framework
+
+### 1. Configure the Environment
+
+- Edit the **config.txt** file to specify required environmental parameters, such as:
+  - Working directory
+  - Database paths
+  - Other task-specific settings
+
+### 2. Modify the Job Script Template
+
+- Adjust the script template located in the **Tools** folder to meet your specific analysis needs.
+
+### 3. Upload Files to CCR
+
+- Transfer all necessary files and folders (**config.txt**, **generate\_slurm\_all.sh**, **Tools folder**, and any required data) to the CCR directory where the analysis will be conducted.
+
+### 4. Generate Slurm Job Scripts
+
+- Run the following command in the working directory:
+  ```bash
+  bash generate_slurm_all.sh
+  ```
+  This script will create individual **.sh** job scripts for each task.
+
+### 5. Load Required Modules
+
+- Before submitting jobs, ensure that all required modules are loaded in your session, as CCR may not automatically load them when running the scripts. Use:
+  ```bash
+  module load <module_name>
+  ```
+  Replace `<module_name>` with the necessary module(s) for your analysis.
+
+### 6. Submit Jobs to Slurm
+
+- Navigate to each task directory and update script permissions:
+  ```bash
+  chmod 777 *.sh
+  ```
+- Submit all jobs in the directory using:
+  ```bash
+  for f in $(ls *.sh); do sbatch $f; done
+  ```
+
+## Notes
+
+- If modules are not preloaded before submission, Slurm may report an error indicating that the module cannot be found.
+- Always verify that job scripts are correctly generated before submitting them.
+- Monitor job status using `squeue` and check logs for errors.
+
+By following these steps, you can efficiently automate job submissions on CCR using this framework.
+
+
+# Old note
 ## Check storage
 ```
 ccrkinit
