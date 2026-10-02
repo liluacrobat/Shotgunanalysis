@@ -1,0 +1,6 @@
+##### Slurm option #####
+WD = /projects/academic/pidiazmo/lu/Project/Kenturkey_10_2025_Run1/RT3345/metagenomic_processing_v0.4
+KNEADATA_DB = /projects/academic/pidiazmo/projectsoftwares/kneaddata/hg37_ref -db /projects/academic/pidiazmo/projectsoftwares/kneaddata/mice_ref
+TRIMMOMATIC = /projects/academic/pidiazmo/projectsoftwares/Trimmomatic-0.39
+K2STD = /projects/academic/pidiazmo/projectsoftwares/kraken2_database/standard
+K2NIH = /projects/academic/pidiazmo/metagenomic_datasets/JAMSdbApr2020_32Gbk2db/krakendb
