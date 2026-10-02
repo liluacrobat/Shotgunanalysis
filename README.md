@@ -317,7 +317,7 @@ Cite the tools actually used in published analyses, including KneadData, MEGAHIT
 # Useful Commands
 ## Check storage
 ```
-iquota -p /panasas/scratch/grp-sunstar
+rquota -p /panasas/scratch/grp-sunstar
 ```
 ## Unzip files
 ```
